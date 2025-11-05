@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Game</title>
+    <link rel="icon" type="image/x-icon" href="\Downloads\images.png">
+</head>
+<body style="background-color: black;">
+    <center>
+        <button id="rollButton" style="width:20in;height:10in;color:white;font-size: xx-large;border-color: aqua;background-image: url(https://d1nhio0ox7pgb.cloudfront.net/_img/o_collection_png/green_dark_grey/512x512/plain/dice.png);">Roll the dice</button>
+    </center>
+    <script>
+const rollButton = document.getElementById('rollButton');
+rollButton.onclick = function() {
+  displayRoll(1, 6);
+};
+function displayRoll(min, max) {
+  const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+  window.alert(randomNumber);
+}
+</script>
+</body>
+</html>
