@@ -7,8 +7,11 @@
     <link rel="icon" type="image/x-icon" href="\Downloads\images.png">
 </head>
 <body style="background-color: black;">
+  <audio controls autoplay>
+    <source src="Clash Royale Soundtrack - Menu A 1 Hour [-l53qLtiJk4].mp3" type="audio/mpeg">
+  </audio>
     <center>
-        <button id="rollButton" style="width:20in;height:10in;color:white;font-size: xx-large;border-color: aqua;background-image: url(https://d1nhio0ox7pgb.cloudfront.net/_img/o_collection_png/green_dark_grey/512x512/plain/dice.png);">Roll the dice</button>
+        <button id="rollButton" style="width:3.25in;height:3.25in;color:rgb(21, 255, 0);font-size: xx-large;border-color: aqua;background-image: url(https://cd2.boardgamesmaker.com/AttachFiles/WebsiteImages/Product_Show/FI_8320.jpg);">Roll the dice</button>
     </center>
     <script>
 const rollButton = document.getElementById('rollButton');
@@ -20,5 +23,67 @@ function displayRoll(min, max) {
   window.alert(randomNumber);
 }
 </script>
+    <button onclick="checkNumber()">Enter Number</button>
+    <h1 style="color: white;">GAMBLE DOWN HERE!!!</h1>
+    <script>
+        function checkNumber() {
+            let input = prompt("Please enter a number:");
+
+            if (input === null || input.trim() === "") {
+                alert("No number entered.");
+                return;
+            }
+
+            let number = parseInt(input);
+
+            if (isNaN(number)) {
+                alert("Invalid input. Please enter a valid number.");
+                return;
+            }
+
+            if (number > 6) {
+                alert("No");
+            } else {
+                alert("Ok");
+            }
+        }
+    </script>
+          <h1 style="color:white;">Guess the Number!</h1>
+    <p style="color: white;">Current Money: <span id="moneyDisplay">100</span></p>
+    <button onclick="startGame()">Start Game</button>
+
+    <script>
+        let currentMoney = 100; // Starting money
+
+function startGame() {
+    const randomNumber = Math.floor(Math.random() * 10) + 1; // Generates a random number between 1 and 10
+    const userGuess = prompt("Guess a number between 1 and 10:");
+
+    // Convert user input to a number
+    const guessAsNumber = parseInt(userGuess);
+
+    if (isNaN(guessAsNumber)) {
+        alert("Invalid input. Please enter a number.");
+        return; // Exit the function if input is not a number
+    }
+
+    if (guessAsNumber === randomNumber) {
+        currentMoney += 10; // Award money
+        alert("Congratulations! You guessed correctly. You won $10. The number was " + randomNumber + ".");
+    } else {
+        currentMoney -= 5; // Deduct money
+        alert("Incorrect guess. You lost $5. The correct number was " + randomNumber + ".");
+    }
+
+    // Update the money display
+    document.getElementById("moneyDisplay").textContent = currentMoney;
+
+    // Optional: Check if money reached zero or below
+    if (currentMoney <= 0) {
+        alert("Game Over! Your broke so stop gambling.");
+        // You could add logic here to reset the game or prevent further play
+    }
+}
+    </script>
 </body>
 </html>
